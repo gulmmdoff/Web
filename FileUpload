@@ -1,6 +1,18 @@
-## Istədiyimiz faylı oxumaq üçün istifadə olunur 
+## Istədiyimiz faylı oxumaq üçün istifadə olunur :
 
 <?php
 echo file_get_contents('/etc/passwd');
 ?>
 
+
+
+## Əsas php file extensions:
+
+.php - Standard PHP files.
+.php3 - Older version of PHP files, used in PHP 3.
+.php4 - Used for PHP 4 files.
+.php5 - Used for PHP 5 files.
+.phtml - PHP files that may contain HTML.
+.phps - PHP source code files, usually for viewing source code.
+.phar - PHP Archive files that can contain multiple PHP files and resources.
+.php7 - Used for PHP 7 files.
